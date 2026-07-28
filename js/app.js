@@ -76,7 +76,7 @@ document
 .getElementById("resetBtn")
 .onclick=()=>{
 
-    if(confirm("Reset all GymStreak data?")){
+    if(confirm("Reset all data?")){
 
         localStorage.clear();
 
