@@ -45,7 +45,7 @@
 
         <div>
 
-            <h1>Workout Tracker</h1>
+            <h1 id="userName" class="user-name"></h1>
 
             <p id="todayDate"></p>
 
@@ -232,6 +232,43 @@
 </div>
 
 <div id="toast" class="toast"></div>
+
+<!-- ========================= -->
+<!-- Welcome Popup -->
+<!-- ========================= -->
+
+<div id="welcomeOverlay" class="welcome-overlay">
+
+    <div class="welcome-card">
+
+        <div class="welcome-icon">👋</div>
+
+        <h2>Welcome!</h2>
+
+        <p>
+            Let's personalize your tracker.
+            <br>
+            What should we call you?
+        </p>
+
+        <input
+            id="nameInput"
+            type="text"
+            maxlength="30"
+            placeholder="Type your name..."
+        >
+
+        <button id="continueBtn">
+            Continue
+        </button>
+
+        <small>
+            You can change it later by clicking your name.
+        </small>
+
+    </div>
+
+</div>
 
 <script type="module" src="js/app.js"></script>
 
