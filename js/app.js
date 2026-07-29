@@ -1,3 +1,5 @@
+console.log("app.js loaded");
+
 import { renderCalendar } from "./calendar.js";
 import { renderSchedule } from "./schedule.js";
 import { updateStats } from "./stats.js";
@@ -65,6 +67,7 @@ themeBtn.onclick=()=>{
 // ==========================
 
 const futureBtn = document.getElementById("futureBtn");
+console.log(futureBtn);
 
 let allowFuture =
     localStorage.getItem("allowFuture") === "true";
