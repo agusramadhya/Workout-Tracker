@@ -11,18 +11,18 @@ calendar.innerHTML="";
 
 const today=new Date();
 
-const startDate = new Date(
-    today.getFullYear(),
-    today.getMonth(),
-    1
-);
+const totalMonths = 18;
 
-const endDate = new Date(startDate);
-endDate.setMonth(endDate.getMonth() + 17);
+for (let i = 0; i < totalMonths; i++) {
 
-const current = new Date(startDate);
+    const current = new Date(
+        today.getFullYear(),
+        today.getMonth() + i,
+        1
+    );
 
-while (current <= endDate) {
+    const year = current.getFullYear();
+    const month = current.getMonth(); {
 
     const year = current.getFullYear();
 
@@ -125,7 +125,6 @@ row.appendChild(days);
 
 calendar.appendChild(row);
 
-current.setMonth(current.getMonth() + 1);
 
 }
 
