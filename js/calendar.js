@@ -3,130 +3,118 @@ const MONTHS=[
 "JUL","AUG","SEP","OCT","NOV","DEC"
 ];
 
-export function renderCalendar(){
+export function renderCalendar() {
 
-const calendar=document.getElementById("calendar");
+    const calendar = document.getElementById("calendar");
 
-calendar.innerHTML="";
+    calendar.innerHTML = "";
 
-const today=new Date();
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
 
-const totalMonths = 18;
+    // Show the next 18 months
+    for (let i = 0; i < 18; i++) {
 
-for (let i = 0; i < totalMonths; i++) {
+        const currentMonth = new Date(
+            today.getFullYear(),
+            today.getMonth() + i,
+            1
+        );
 
-    const current = new Date(
-        today.getFullYear(),
-        today.getMonth() + i,
-        1
-    );
+        const year = currentMonth.getFullYear();
+        const month = currentMonth.getMonth();
 
-    const year = current.getFullYear();
-    const month = current.getMonth(); {
+        const row = document.createElement("div");
+        row.className = "month-row";
 
-    const year = current.getFullYear();
+        const label = document.createElement("div");
+        label.className = "month-label";
+        label.textContent = `${MONTHS[month]} ${year}`;
 
-    const month = current.getMonth();
+        const days = document.createElement("div");
+        days.className = "days";
 
-const row=document.createElement("div");
-row.className="month-row";
+        const totalDays = new Date(year, month + 1, 0).getDate();
 
-const label=document.createElement("div");
-label.className="month-label";
-label.textContent = `${MONTHS[month]} ${year}`;
+        for (let day = 1; day <= totalDays; day++) {
 
-const days=document.createElement("div");
-days.className="days";
+            const wrapper = document.createElement("div");
+            wrapper.className = "day";
 
-const total = new Date(year, month + 1, 0).getDate();
+            const number = document.createElement("div");
+            number.className = "day-number";
+            number.textContent = day;
 
-const startDay = 1;
+            const circle = document.createElement("div");
+            circle.className = "circle";
+            circle.title = "Not Logged";
 
-for(let day=startDay;day<=total;day++){
+            const key = `attendance-${year}-${month}-${day}`;
 
-const wrapper=document.createElement("div");
-wrapper.className="day";
+            const circleDate = new Date(year, month, day);
+            circleDate.setHours(0, 0, 0, 0);
 
-const number=document.createElement("div");
-number.className="day-number";
-number.textContent=day;
+            const allowFuture =
+                localStorage.getItem("allowFuture") === "true";
 
-const circle=document.createElement("div");
-circle.className="circle";
-circle.title = "Not Logged";
+            const isFuture = circleDate > today;
 
-const key=`attendance-${year}-${month}-${day}`;
+            if (isFuture && !allowFuture) {
+                circle.classList.add("future");
+            }
 
-const circleDate = new Date(year, month, day);
+            const state = localStorage.getItem(key);
 
-const compareToday = new Date(today);
+            if (state === "done") {
+                circle.classList.add("done");
+                circle.title = "Workout";
+            }
 
-compareToday.setHours(0,0,0,0);
-circleDate.setHours(0,0,0,0);
+            if (state === "rest") {
+                circle.classList.add("rest");
+                circle.title = "Rest Day";
+            }
 
-const isFuture = circleDate > compareToday;
+            if (
+                day === today.getDate() &&
+                month === today.getMonth() &&
+                year === today.getFullYear()
+            ) {
+                circle.classList.add("today");
+            }
 
-const allowFuture =
-    localStorage.getItem("allowFuture") === "true";
+            circle.addEventListener("click", (e) => {
 
-if (isFuture && !allowFuture) {
+                e.stopPropagation();
 
-    circle.classList.add("future");
+                const allowFuture =
+                    localStorage.getItem("allowFuture") === "true";
 
-}
+                if (isFuture && !allowFuture) {
 
-const state = localStorage.getItem(key);
+                    showToast("⏳ Future workouts are locked.");
 
-if (state === "done") {
-    circle.classList.add("done");
-    circle.title = "Workout";
-}
+                    return;
 
-if (state === "rest") {
-    circle.classList.add("rest");
-    circle.title = "Rest Day";
-}
+                }
 
-if(
-day===today.getDate() &&
-month===today.getMonth()
-)
-circle.classList.add("today");
+                showStatusMenu(circle, key);
 
-circle.addEventListener("click", (e) => {
+            });
 
-    e.stopPropagation();
+            wrapper.appendChild(number);
+            wrapper.appendChild(circle);
 
-    // Read the latest setting every time
-    const allowFuture =
-        localStorage.getItem("allowFuture") === "true";
+            days.appendChild(wrapper);
 
-    if (isFuture && !allowFuture) {
+        }
 
-        showToast("⏳ Future workouts are locked.");
+        row.appendChild(label);
+        row.appendChild(days);
 
-        return;
+        calendar.appendChild(row);
 
     }
-
-    showStatusMenu(circle, key);
-
-});
-
-wrapper.appendChild(number);
-wrapper.appendChild(circle);
-
-days.appendChild(wrapper);
-
-}
-
-row.appendChild(label);
-row.appendChild(days);
-
-calendar.appendChild(row);
-
-
-}
 
 }
 
