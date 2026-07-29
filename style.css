@@ -946,8 +946,17 @@ color:white;
     justify-content:center;
     align-items:center;
 
-    background:rgba(8,12,18,.22);
-    backdrop-filter:blur(16px);
+   background:rgba(255,255,255,.08);
+
+   backdrop-filter:
+       blur(28px)
+       saturate(180%)
+       brightness(1.08);
+
+   -webkit-backdrop-filter:
+       blur(28px)
+       saturate(180%)
+       brightness(1.08);
 
     z-index:99999;
 
@@ -996,21 +1005,22 @@ color:white;
     border-radius:32px;
 
     background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,.18),
-            rgba(255,255,255,.05)
-        );
+    linear-gradient(
+       145deg,
+       rgba(255,255,255,.30),
+       rgba(255,255,255,.12)
+    );
 
     backdrop-filter:blur(35px) saturate(180%);
     -webkit-backdrop-filter:blur(35px) saturate(180%);
 
-    border:1px solid rgba(255,255,255,.18);
+    border:1px solid rgba(255,255,255,.45);
 
     box-shadow:
-        0 30px 80px rgba(0,0,0,.35),
-        inset 0 1px rgba(255,255,255,.35),
-        inset 0 -1px rgba(255,255,255,.05);
+       0 20px 60px rgba(0,0,0,.18),
+       0 0 0 1px rgba(255,255,255,.08),
+       inset 0 1px rgba(255,255,255,.65),
+       inset 0 -1px rgba(255,255,255,.12);
 
     text-align:center;
 
@@ -1072,6 +1082,40 @@ color:white;
 
 }
 
+.welcome-card::before{
+
+    animation:glassGlow 7s linear infinite;
+
+}
+
+@keyframes glassGlow{
+
+    0%{
+
+        transform:translateX(-30px);
+
+        opacity:.45;
+
+    }
+
+    50%{
+
+        transform:translateX(45px);
+
+        opacity:.85;
+
+    }
+
+    100%{
+
+        transform:translateX(-30px);
+
+        opacity:.45;
+
+    }
+
+}
+
 .welcome-icon{
 
     font-size:48px;
@@ -1103,9 +1147,9 @@ color:white;
 
     border-radius:18px;
 
-    border:1px solid rgba(255,255,255,.15);
+    border:1px solid rgba(255,255,255,.40);
 
-    background:rgba(255,255,255,.08);
+    background:rgba(255,255,255,.22);
 
     color:var(--text);
 
