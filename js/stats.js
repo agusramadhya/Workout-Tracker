@@ -1,18 +1,24 @@
-export function updateStats() {
+export function updateStats(){
 
-    const circles = [...document.querySelectorAll(".circle")];
+const done = document.querySelectorAll(".circle.done").length;
 
-    const completed = circles.filter(c => c.classList.contains("done")).length;
-    const total = circles.length;
-    const remaining = total - completed;
+const rest = document.querySelectorAll(".circle.rest").length;
 
-    const progress = total
-        ? Math.round((completed / total) * 100)
-        : 0;
+const completed = done + rest;
 
-    document.getElementById("completed").textContent = completed;
-    document.getElementById("remaining").textContent = remaining;
-    document.getElementById("progress").textContent = progress + "%";
+const total = document.querySelectorAll(".circle").length;
+
+const remaining = total - completed;
+
+const progress = total
+    ? Math.round(completed / total * 100)
+    : 0;
+
+document.getElementById("completed").textContent=completed;
+
+document.getElementById("remaining").textContent=remaining;
+
+document.getElementById("progress").textContent=progress+"%";
 
     document.getElementById("completedLine").style.width = progress + "%";
     document.getElementById("progressLine").style.width = progress + "%";
