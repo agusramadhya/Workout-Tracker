@@ -81,13 +81,16 @@ circle.addEventListener("click", (e) => {
 
     e.stopPropagation();
 
-    if (isFuture) {
+const allowFuture =
+    localStorage.getItem("allowFuture") === "true";
 
-        showToast("⏳ You can't complete future workouts.");
+if (isFuture && !allowFuture) {
 
-        return;
+    showToast("⏳ Future workouts are locked.");
 
-    }
+    return;
+
+}
 
     showStatusMenu(circle, key);
 
