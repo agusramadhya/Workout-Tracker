@@ -53,7 +53,10 @@ circleDate.setHours(0,0,0,0);
 
 const isFuture = circleDate > compareToday;
 
-if (isFuture) {
+const allowFuture =
+    localStorage.getItem("allowFuture") === "true";
+
+if (isFuture && !allowFuture) {
 
     circle.classList.add("future");
 
