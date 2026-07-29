@@ -30,34 +30,30 @@ function calculateStreak() {
 
     let streak = 0;
 
-    const cursor = new Date(today);
-    cursor.setHours(0,0,0,0);
+const cursor = new Date(today);
+cursor.setHours(0, 0, 0, 0);
 
-    while (true) {
+while (true) {
 
-        const key =
-            `attendance-${cursor.getFullYear()}-${cursor.getMonth()}-${cursor.getDate()}`;
+    const key =
+        `attendance-${cursor.getFullYear()}-${cursor.getMonth()}-${cursor.getDate()}`;
 
-        const state = localStorage.getItem(key);
+    const state = localStorage.getItem(key);
 
-        if (state === "done") {
+    // Workout and Rest Day both count toward the streak
+    if (state === "done" || state === "rest") {
 
-            streak++;
+        streak++;
 
-        } else if (state === "rest") {
+    } else {
 
-            // Rest day keeps the streak alive
-
-        } else {
-
-            break;
-
-        }
-
-        cursor.setDate(cursor.getDate() - 1);
+        break;
 
     }
 
+    cursor.setDate(cursor.getDate() - 1);
+
+}
     // ---------- LONGEST STREAK ----------
 
     let longest = 0;
