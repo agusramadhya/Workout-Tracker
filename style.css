@@ -1663,21 +1663,16 @@ body::-webkit-scrollbar{
         display:none;
     }
 
-    @media (max-width:768px){
+    .toolbar #themeBtn,
+    .toolbar #futureBtn,
+    .toolbar #printBtn,
+    .toolbar #resetBtn{
+         display:none;
 
-        .toolbar #themeBtn,
-        .toolbar #futureBtn,
-        .toolbar #printBtn,
-        .toolbar #resetBtn{
-        display:none;
-    }
-
-        .menu-btn{
+    .menu-btn{
         display:flex;
         justify-content:center;
         align-items:center;
-    }
-
     }
 
 }
@@ -1769,6 +1764,21 @@ body::-webkit-scrollbar{
 
         padding:24px 18px;
 
+    }
+    .menu-btn{
+        display:none;
+    }
+
+    .toolbar #themeBtn,
+    .toolbar #futureBtn,
+    .toolbar #printBtn,
+    .toolbar #resetBtn{
+         display:none;
+
+    .menu-btn{
+        display:flex;
+        justify-content:center;
+        align-items:center;
     }
 
 }
