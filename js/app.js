@@ -83,6 +83,8 @@ futureBtn.onclick = () => {
 
     allowFuture = !allowFuture;
 
+    console.log("allowFuture =", allowFuture);
+
     localStorage.setItem(
         "allowFuture",
         allowFuture
@@ -90,11 +92,8 @@ futureBtn.onclick = () => {
 
     updateFutureButton();
 
-    // Refresh the calendar so future days
-    // immediately change appearance
     renderCalendar();
 
-    // Refresh the stats
     updateStats();
 
 };
