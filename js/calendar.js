@@ -25,12 +25,9 @@ label.textContent=MONTHS[month];
 const days=document.createElement("div");
 days.className="days";
 
-const total=new Date(year,month+1,0).getDate();
+const total = new Date(year, month + 1, 0).getDate();
 
-const startDay=
-month===today.getMonth()
-?today.getDate()
-:1;
+const startDay = 1;
 
 for(let day=startDay;day<=total;day++){
 
