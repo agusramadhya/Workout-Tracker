@@ -946,7 +946,7 @@ color:white;
     justify-content:center;
     align-items:center;
 
-    background:rgba(0,0,0,.45);
+    background:rgba(8,12,18,.22);
     backdrop-filter:blur(16px);
 
     z-index:99999;
@@ -956,6 +956,24 @@ color:white;
 
     transition:.35s;
 
+    animation:fadeIn .35s ease;
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
 }
 
 .welcome-overlay.show{
@@ -963,28 +981,94 @@ color:white;
     opacity:1;
     visibility:visible;
 
-}
+    animation:fadeIn .35s ease;
 
+}
 .welcome-card{
 
-    width:420px;
+    width:430px;
     max-width:90%;
 
-    background:rgba(30,30,30,.75);
+    position:relative;
 
-    backdrop-filter:blur(25px);
+    padding:42px;
 
-    border:1px solid rgba(255,255,255,.08);
+    border-radius:32px;
 
-    border-radius:30px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.18),
+            rgba(255,255,255,.05)
+        );
 
-    padding:40px;
+    backdrop-filter:blur(35px) saturate(180%);
+    -webkit-backdrop-filter:blur(35px) saturate(180%);
+
+    border:1px solid rgba(255,255,255,.18);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.35),
+        inset 0 1px rgba(255,255,255,.35),
+        inset 0 -1px rgba(255,255,255,.05);
 
     text-align:center;
 
-    box-shadow:0 25px 60px rgba(0,0,0,.45);
+    overflow:hidden;
 
-    animation:popup .35s ease;
+    animation:popup .4s ease;
+
+}
+
+.welcome-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-120px;
+    left:-100px;
+
+    width:260px;
+    height:260px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            rgba(255,255,255,.35),
+            transparent 70%
+        );
+
+    pointer-events:none;
+
+    filter:blur(20px);
+
+}
+
+.welcome-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    right:-120px;
+    bottom:-120px;
+
+    width:240px;
+    height:240px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            rgba(255,255,255,.08),
+            transparent 70%
+        );
+
+    filter:blur(40px);
+
+    pointer-events:none;
 
 }
 
@@ -1013,19 +1097,21 @@ color:white;
 
     width:100%;
 
-    padding:15px;
-
-    border:none;
-
-    border-radius:15px;
-
-    background:var(--surface-2);
-
-    color:var(--text);
+    padding:16px;
 
     font-size:16px;
 
-    margin-bottom:18px;
+    border-radius:18px;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    background:rgba(255,255,255,.08);
+
+    color:var(--text);
+
+    backdrop-filter:blur(20px);
+
+    transition:.25s;
 
 }
 
@@ -1041,21 +1127,36 @@ color:white;
 
     padding:15px;
 
-    border:none;
+    border-radius:18px;
 
-    border-radius:15px;
+    border:1px solid rgba(255,255,255,.15);
 
-    background:var(--primary);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(109,216,143,.95),
+            rgba(80,190,120,.85)
+        );
 
     color:white;
 
-    font-size:16px;
-
-    font-weight:600;
+    font-weight:700;
 
     cursor:pointer;
 
     transition:.25s;
+
+    box-shadow:
+        0 10px 25px rgba(109,216,143,.25);
+
+}
+
+#continueBtn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 15px 35px rgba(109,216,143,.35);
 
 }
 
