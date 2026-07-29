@@ -526,7 +526,10 @@ transition:width .5s ease;
    RESPONSIVE
 ========================================================== */
 
-/* Large Desktop */
+/* ===========================
+   Large Desktop
+=========================== */
+
 @media (min-width:1600px){
 
 .container{
@@ -540,7 +543,10 @@ transition:width .5s ease;
 }
 
 
-/* Laptop */
+/* ===========================
+   Laptop
+=========================== */
+
 @media (max-width:1400px){
 
 .container{
@@ -558,7 +564,10 @@ transition:width .5s ease;
 }
 
 
-/* Tablet */
+/* ===========================
+   Tablet
+=========================== */
+
 @media (max-width:1024px){
 
 body{
@@ -571,15 +580,15 @@ body{
 
 header{
 
-    padding:20px;
+    padding:22px;
 
     border-radius:28px;
 
 }
 
-header h1{
+.user-name{
 
-    font-size:46px;
+    font-size:clamp(2.8rem,5vw,4rem);
 
 }
 
@@ -618,7 +627,10 @@ header h1{
 }
 
 
-/* Mobile */
+/* ===========================
+   Mobile
+=========================== */
+
 @media (max-width:768px){
 
 body{
@@ -627,15 +639,25 @@ body{
 
 }
 
+.container{
+
+    width:100%;
+
+}
+
 header{
 
-    flex-direction:column;
+    display:flex;
 
-    align-items:flex-start;
+    justify-content:space-between;
 
-    gap:20px;
+    align-items:center;
 
-    padding:20px;
+    gap:18px;
+
+    padding:22px;
+
+    border-radius:24px;
 
     position:relative;
 
@@ -651,33 +673,55 @@ header.compact{
 
 }
 
+header > div{
+
+    flex:1;
+
+    min-width:0;
+
+}
+
+.user-name{
+
+    font-size:clamp(2.2rem,8vw,3.4rem);
+
+    line-height:.9;
+
+    word-break:break-word;
+
+}
+
+#todayDate{
+
+    margin-top:10px;
+
+    font-size:.95rem;
+
+}
+
 .toolbar{
 
-    width:100%;
+    display:flex;
 
-    justify-content:space-between;
+    flex-direction:row;
+
+    gap:8px;
+
+    flex-shrink:0;
+
+    width:auto;
 
 }
 
 .toolbar-btn{
 
-    width:52px;
+    width:46px;
 
-    height:52px;
+    height:46px;
 
-}
+    border-radius:16px;
 
-header h1{
-
-    font-size:36px;
-
-    line-height:1.1;
-
-}
-
-header p{
-
-    font-size:15px;
+    font-size:17px;
 
 }
 
@@ -705,17 +749,13 @@ header p{
 
     padding:20px;
 
-    border-radius:24px;
+    border-radius:22px;
 
 }
 
 .section-title{
 
-    flex-direction:column;
-
     align-items:flex-start;
-
-    gap:6px;
 
 }
 
@@ -737,17 +777,31 @@ header p{
 
     padding-top:0;
 
+    margin-bottom:8px;
+
 }
 
 .days{
 
     gap:6px;
 
+    overflow-x:auto;
+
+    padding-bottom:4px;
+
+}
+
+.days::-webkit-scrollbar{
+
+    display:none;
+
 }
 
 .day{
 
     width:18px;
+
+    flex-shrink:0;
 
 }
 
@@ -769,7 +823,7 @@ header p{
 
     width:92%;
 
-    padding:32px 24px;
+    padding:34px 24px;
 
 }
 
@@ -796,7 +850,10 @@ footer{
 }
 
 
-/* Small Phones */
+/* ===========================
+   Small Phones
+=========================== */
+
 @media (max-width:480px){
 
 body{
@@ -809,27 +866,37 @@ header{
 
     padding:18px;
 
+    gap:14px;
+
 }
 
-header h1{
+.user-name{
 
-    font-size:30px;
+    font-size:2.5rem;
+
+}
+
+#todayDate{
+
+    font-size:.9rem;
 
 }
 
 .toolbar{
 
-    gap:10px;
+    gap:6px;
 
 }
 
 .toolbar-btn{
 
-    width:46px;
+    width:42px;
 
-    height:46px;
+    height:42px;
 
     border-radius:14px;
+
+    font-size:15px;
 
 }
 
@@ -861,6 +928,8 @@ header h1{
 
     flex-direction:column;
 
+    gap:10px;
+
 }
 
 .delete-btn{
@@ -872,6 +941,8 @@ header h1{
 }
 
 .add-btn{
+
+    width:100%;
 
     padding:14px;
 
@@ -898,22 +969,37 @@ footer{
 }
 
 
-/* Very Small Devices */
+/* ===========================
+   Very Small Devices
+=========================== */
+
 @media (max-width:360px){
 
-header h1{
+header{
 
-    font-size:26px;
+    padding:16px;
+
+}
+
+.user-name{
+
+    font-size:2.1rem;
+
+}
+
+.toolbar{
+
+    gap:4px;
 
 }
 
 .toolbar-btn{
 
-    width:42px;
+    width:38px;
 
-    height:42px;
+    height:38px;
 
-    font-size:15px;
+    font-size:14px;
 
 }
 
@@ -926,6 +1012,20 @@ header h1{
 .section-title h2{
 
     font-size:22px;
+
+}
+
+.day{
+
+    width:16px;
+
+}
+
+.circle{
+
+    width:11px;
+
+    height:11px;
 
 }
 
