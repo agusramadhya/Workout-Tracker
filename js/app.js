@@ -90,6 +90,13 @@ futureBtn.onclick = () => {
 
     updateFutureButton();
 
+    // Refresh the calendar so future days
+    // immediately change appearance
+    renderCalendar();
+
+    // Refresh the stats
+    updateStats();
+
 };
 
 updateFutureButton();
