@@ -53,37 +53,67 @@
 
         </div>
 
-        <div class="toolbar">
+<div class="toolbar">
 
-            <button id="themeBtn"
-                    class="toolbar-btn"
-                    title="Toggle Dark Mode">
-                🌙
-            </button>
+    <button id="themeBtn"
+            class="toolbar-btn"
+            title="Toggle Dark Mode">
+        🌙
+    </button>
 
-            <button id="futureBtn"
-                    class="toolbar-btn"
-                    title="Future Workouts Locked">
-                🔒
-            </button>
+    <button id="futureBtn"
+            class="toolbar-btn"
+            title="Future Workouts Locked">
+        🔒
+    </button>
 
-            <button id="printBtn"
-                    class="toolbar-btn"
-                    title="Print">
-                🖨
-            </button>
+    <button id="printBtn"
+            class="toolbar-btn"
+            title="Print">
+        🖨
+    </button>
 
-            <button id="resetBtn"
-                    class="toolbar-btn danger"
-                    title="Reset All Data">
-                ↺
-            </button>
+    <button id="resetBtn"
+            class="toolbar-btn danger"
+            title="Reset All Data">
+        ↺
+    </button>
 
-        </div>
+    <!-- Mobile Menu -->
+    <button id="menuBtn"
+            class="toolbar-btn menu-btn"
+            title="Menu">
+        ☰
+    </button>
+
+</div>
 
     </div>
 
 </header>
+<div id="mobileMenu" class="mobile-menu">
+
+    <button data-action="theme">
+        🌙
+        <span>Dark Mode</span>
+    </button>
+
+    <button data-action="future">
+        🔒
+        <span>Future Workout Lock</span>
+    </button>
+
+    <button data-action="print">
+        🖨
+        <span>Print</span>
+    </button>
+
+    <button data-action="reset">
+        ↺
+        <span>Reset Progress</span>
+    </button>
+
+</div>
 
     <!-- ========================= -->
     <!-- Dashboard -->
