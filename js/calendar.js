@@ -11,16 +11,29 @@ calendar.innerHTML="";
 
 const today=new Date();
 
-const year=today.getFullYear();
+const startDate = new Date(
+    today.getFullYear(),
+    today.getMonth(),
+    1
+);
 
-for(let month=today.getMonth();month<12;month++){
+const endDate = new Date(startDate);
+endDate.setMonth(endDate.getMonth() + 17);
+
+const current = new Date(startDate);
+
+while (current <= endDate) {
+
+    const year = current.getFullYear();
+
+    const month = current.getMonth();
 
 const row=document.createElement("div");
 row.className="month-row";
 
 const label=document.createElement("div");
 label.className="month-label";
-label.textContent=MONTHS[month];
+label.textContent = `${MONTHS[month]} ${year}`;
 
 const days=document.createElement("div");
 days.className="days";
@@ -111,6 +124,8 @@ row.appendChild(label);
 row.appendChild(days);
 
 calendar.appendChild(row);
+
+current.setMonth(current.getMonth() + 1);
 
 }
 
