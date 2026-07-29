@@ -995,6 +995,11 @@ color:white;
 }
 .welcome-card{
 
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    gap:18px;
+   
     width:430px;
     max-width:90%;
 
