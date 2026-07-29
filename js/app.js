@@ -129,5 +129,107 @@ document
 
 };
 
+// ==========================
+// User Name
+// ==========================
+
+const userName = document.getElementById("userName");
+const welcomeOverlay = document.getElementById("welcomeOverlay");
+const nameInput = document.getElementById("nameInput");
+const continueBtn = document.getElementById("continueBtn");
+
+function loadUserName() {
+
+    const saved = localStorage.getItem("userName");
+
+    if (saved) {
+
+        userName.textContent = saved;
+        userName.classList.remove("empty");
+
+    } else {
+
+        userName.textContent = "Type your name...";
+        userName.classList.add("empty");
+
+        welcomeOverlay.classList.add("show");
+
+        setTimeout(() => {
+
+            nameInput.focus();
+
+        }, 250);
+
+    }
+
+}
+
+function saveUserName(name) {
+
+    name = name.trim();
+
+    if (!name) {
+
+        localStorage.removeItem("userName");
+
+        userName.textContent = "Type your name...";
+        userName.classList.add("empty");
+
+        return;
+
+    }
+
+    localStorage.setItem("userName", name);
+
+    userName.textContent = name;
+    userName.classList.remove("empty");
+
+}
+
+continueBtn.addEventListener("click", () => {
+
+    const name = nameInput.value.trim();
+
+    if (!name) return;
+
+    saveUserName(name);
+
+    welcomeOverlay.classList.remove("show");
+
+});
+
+nameInput.addEventListener("keydown", (e) => {
+
+    if (e.key === "Enter") {
+
+        continueBtn.click();
+
+    }
+
+});
+
+userName.addEventListener("click", () => {
+
+    const current =
+        localStorage.getItem("userName") || "";
+
+    userName.contentEditable = true;
+
+    userName.focus();
+
+    document.execCommand("selectAll", false, null);
+
+});
+
+userName.addEventListener("blur", () => {
+
+    userName.contentEditable = false;
+
+    saveUserName(userName.textContent);
+
+});
+
+loadUserName();
+
 // Export & Import
 // (We'll build these in v2.0.2)
