@@ -61,6 +61,40 @@ themeBtn.onclick=()=>{
 };
 
 // ==========================
+// Future Workout Toggle
+// ==========================
+
+const futureBtn = document.getElementById("futureBtn");
+
+let allowFuture =
+    localStorage.getItem("allowFuture") === "true";
+
+function updateFutureButton() {
+
+    futureBtn.textContent = allowFuture ? "🔓" : "🔒";
+
+    futureBtn.title = allowFuture
+        ? "Future Workouts Enabled"
+        : "Future Workouts Locked";
+
+}
+
+futureBtn.onclick = () => {
+
+    allowFuture = !allowFuture;
+
+    localStorage.setItem(
+        "allowFuture",
+        allowFuture
+    );
+
+    updateFutureButton();
+
+};
+
+updateFutureButton();
+
+// ==========================
 // Print
 // ==========================
 
