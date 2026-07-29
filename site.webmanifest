@@ -1,6 +1,6 @@
 {
   "name": "Workout Tracker",
-  "short_name": "WT",
+  "short_name": "Workout Tracker",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
