@@ -1130,7 +1130,6 @@ color:white;
 
 .welcome-card h2{
 
-    margin-bottom:10px;
 
 }
 
@@ -1138,7 +1137,6 @@ color:white;
 
     color:var(--muted);
 
-    margin-bottom:25px;
 
 }
 
@@ -1174,7 +1172,6 @@ color:white;
 
     width:100%;
 
-    margin-top:18px;   /* <-- add this */
 
     padding:15px;
 
@@ -1221,7 +1218,6 @@ color:white;
 
     display:block;
 
-    margin-top:18px;
 
     color:var(--muted);
 
